@@ -23,6 +23,7 @@
 ## Структура проекта
 Архитектура **Feature-Sliced + Atomic** для маштабируемости
 
+```bash
 src/ 
 │── app/ # Конфигурация приложения (роутинг, API, стили) 
 │── shared/ # Общие хуки, утилиты, UI-компоненты (Atomic Design) 
@@ -36,3 +37,4 @@ src/
 │── widgets/ # Готовые UI-блоки (Navbar, CartDropdown) 
 │── pages/ # Готовые страницы (HomePage, ProductPage, CartPage) 
 └── index.tsx
+```
