@@ -1,12 +1,12 @@
-import React, { useRef, useCallback } from "react";
-import { useProducts } from "../features/useProducts";
-import type Product from "../entities/Product";
+import React, { useRef, useCallback } from 'react';
+import { useProducts } from '../features/useProducts';
+import type Product from '../entities/Product';
 
-import CategoryFilter from "../widgets/CategoryFilter";
-import ProductList from "../shared/molecules/ProductList";
-import ProductCard from "../shared/atoms/ProductCard";
-import SkeletonProduct from "../shared/atoms/SkeletonProduct";
-import CartIndicator from "../widgets/CartIndicator";
+import CategoryFilter from '../widgets/CategoryFilter';
+import ProductList from '../shared/molecules/ProductList';
+import ProductCard from '../shared/atoms/ProductCard';
+import SkeletonProduct from '../shared/atoms/SkeletonProduct';
+import CartIndicator from '../widgets/CartIndicator';
 
 const Catalog: React.FC = () => {
   const { products, loading, error, hasMore, loadMore } = useProducts();
@@ -23,7 +23,7 @@ const Catalog: React.FC = () => {
       });
       if (node) observer.current.observe(node);
     },
-    [loading, hasMore, loadMore]
+    [loading, hasMore, loadMore],
   );
 
   return (
@@ -33,17 +33,17 @@ const Catalog: React.FC = () => {
       <CategoryFilter />
       <ProductList>
         {products.map((product: Product, index: number) => {
-            if (products.length === index + 1) {
-              return (
-                <ProductCard
-                  key={product.id}
-                  item={product}
-                  ref={lastProductRef}
-                />
-              );
-            }
-            return <ProductCard key={product.id} item={product} />;
-          })}
+          if (products.length === index + 1) {
+            return (
+              <ProductCard
+                key={product.id}
+                item={product}
+                ref={lastProductRef}
+              />
+            );
+          }
+          return <ProductCard key={product.id} item={product} />;
+        })}
         {loading &&
           Array.from({ length: 16 }).map((_, index) => (
             <SkeletonProduct key={index} />

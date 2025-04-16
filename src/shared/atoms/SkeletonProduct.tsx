@@ -1,5 +1,5 @@
-import { FC } from "react";
-import ContentLoader from "react-content-loader";
+import { FC } from 'react';
+import ContentLoader from 'react-content-loader';
 
 const SkeletonProduct: FC = () => {
   return (
@@ -7,7 +7,7 @@ const SkeletonProduct: FC = () => {
       <ContentLoader
         speed={2}
         width="100%" // занимает всю ширину контейнера
-        height={400}  // высота, соответствующая карточке (можно вынести в константу)
+        height={400} // высота, соответствующая карточке (можно вынести в константу)
         viewBox="0 0 300 400" // фиксированное соотношение сторон (300x400)
         backgroundColor="#f3f3f3"
         foregroundColor="#ecebeb"

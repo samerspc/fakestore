@@ -1,14 +1,14 @@
-import { FC } from "react";
-import ContentLoader from "react-content-loader";
+import { FC } from 'react';
+import ContentLoader from 'react-content-loader';
 
 const SkeletonCategory: FC = () => {
   return (
     <div>
       <ContentLoader
         speed={2}
-        width={77} 
-        height={38} 
-        viewBox="0 0 77 38" 
+        width={77}
+        height={38}
+        viewBox="0 0 77 38"
         backgroundColor="#f3f3f3"
         foregroundColor="#ecebeb"
       >

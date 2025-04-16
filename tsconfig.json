@@ -9,6 +9,6 @@
     "module": "ESNext",
     "esModuleInterop": true,
     "strict": true,
-    "jsx": "react",
+    "jsx": "react"
   }
 }

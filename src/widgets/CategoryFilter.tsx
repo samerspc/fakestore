@@ -21,25 +21,25 @@ const CategoryFilter: FC = () => {
   return (
     <section>
       <CategoryList>
-        {loading ? 
+        {loading ? (
           <>
-          {Array.from({ length: 6 }, (_, index) => (
-            <SkeletonCategory key={index}/>
-          ))}
+            {Array.from({ length: 6 }, (_, index) => (
+              <SkeletonCategory key={index} />
+            ))}
           </>
-        : 
-        <>
-        <CategoryCard onClick={handleCategoryClick} name="Все" />
-        {categories.map((category) => (
-          <CategoryCard
-            key={category.id}
-            id={category.id}
-            name={category.name}
-            onClick={handleCategoryClick}
-          />
-        ))}
-        </>
-        }
+        ) : (
+          <>
+            <CategoryCard onClick={handleCategoryClick} name="Все" />
+            {categories.map((category) => (
+              <CategoryCard
+                key={category.id}
+                id={category.id}
+                name={category.name}
+                onClick={handleCategoryClick}
+              />
+            ))}
+          </>
+        )}
       </CategoryList>
     </section>
   );
