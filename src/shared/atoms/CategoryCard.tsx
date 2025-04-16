@@ -30,7 +30,7 @@ const CategoryCard: FC<CategoryCardProps> = ({ onClick, id, name }) => {
   return (
     <div
       onClick={() => onClick(id ? id : null)}
-      className={`min-w-max flex flex-col items-center justify-center p-2 border rounded-lg cursor-pointer
+      className={`min-w-max flex flex-col items-center justify-center p-2 border rounded-lg cp
                 border-black 
             ${isSelected ? 'bg-black' : 'bg-white'}`}
     >
