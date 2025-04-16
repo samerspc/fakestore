@@ -1,35 +1,33 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '../app/store';
 import { useEffect } from 'react';
 
-const Bucket: React.FC = () => {
-  const dispatch = useDispatch();
+import ProductList from '../shared/molecules/ProductList';
+import ProductCard from '../shared/atoms/ProductCard';
+
+const Cart: React.FC = () => {
   const products = useSelector((state: RootState) => state.cart.products);
+  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice)
 
   useEffect(() => {
     console.log(products);
   }, [products]);
 
   return (
-    <main className="flex flex-col gap-5">
-      <h1>Корзина</h1>
+    <main className="flex flex-col">
+    <h1>Корзина</h1>
+    { products.length !== 0 && <h2>{totalPrice}</h2> }
+    <ProductList> 
       {products.map((product) => (
-        <div key={product.id} className="flex flex-col gap-2">
-          <h2>{product.title}</h2>
-          <p>Цена: {product.price}</p>
-          <button
-            onClick={() =>
-              dispatch({ type: 'cart/removeFromCart', payload: product })
-            }
-            className="bg-red-500 text-white p-2 rounded"
-          >
-            Удалить из корзины
-          </button>
-        </div>
+        <ProductCard
+          key={product.id}
+          item={product}
+        />
       ))}
+      </ProductList>
       {products.length == 0 && <p>Корзина пуста</p>}
     </main>
   );
 };
 
-export default Bucket;
+export default Cart;
